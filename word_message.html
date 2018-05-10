@@ -76,7 +76,7 @@
 				</div>
 				<div class='content body'>
 					<h2>在线留言</h2>
-					<div class='count'><script type="text/javascript" src="core/ArticleCount.asp?id=3"></script></div>
+					<div class='count'><script type="text/javascript" src="http://hs.yxyo.net/core/ArticleCount.asp?id=3"></script></div>
 					<div class='author'>admin</div>
 					<div class='line'></div>
 					<div>
@@ -122,6 +122,23 @@ function CheckForm(o) {
 		alert("留言信息最低10个字符，最高500个字符！");
 		return false;
 	}
+	var data = {
+		'Surname' : escape(o.Surname.value),
+		'Sex' : o.Sex[0].checked ? 1 : 0,
+		'Tel' : o.Tel.value,
+		'Email' : o.Email.value,
+		'QQ' : o.QQ.value,
+		'Message' : escape(o.Message.value)
+	};
+	$.post(o.action, data/*$(o).serialize()*/, function(re){
+		if(re == 'ok') {
+			alert("感谢您的提交，我们会在第一时间查看您的信息！");
+			window.location.href = 'index.html';
+		} else {
+			alert(re);
+		}
+	}, "text");
+	return false;
 }
 </script>
 					</div>
