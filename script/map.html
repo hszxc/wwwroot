@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Map</title>
 <style type="text/css">
 html, body {width:100%;height:100%;margin:0;padding:0;border:0;}
@@ -24,11 +24,11 @@ var gc = new BMap.Geocoder();
 function showInfo(){
 	gc.getLocation(pt, function(rs){
 		var addComp = rs.addressComponents;
-		var reData = "湖北省武汉市汉阳区永丰乡陈家嘴工业园特一号";//addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+		var reData = "婀栧寳鐪佹姹夊競姹夐槼鍖烘案涓颁埂闄堝鍢村伐涓氬洯鐗逛竴鍙�";//addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
 		marker.openInfoWindow(new BMap.InfoWindow(reData, {
 			width : 230,
 			height: 70,
-			title : '<b style="color:#cc5522;">武汉市何氏纸箱厂</b>'
+			title : '<b style="color:#cc5522;">姝︽眽甯備綍姘忕焊绠卞巶</b>'
 		}));
 	});
 }
