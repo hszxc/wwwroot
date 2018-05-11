@@ -106,11 +106,11 @@ function CheckForm(o) {
 		$.alert("请选择您的性别！");
 		return false;
 	}
-	if(!/^\w{0,20}$/.test(o.Tel.value)) {
+	if(!/^[\w-]{0,20}$/.test(o.Tel.value)) {
 		$.alert("电话号码最多允许填写20个字符！");
 		return false;
 	}
-	if(!/^[\w\.@]{0,80}$/.test(o.Email.value)) {
+	if(!/^[\w-\.@]{0,80}$/.test(o.Email.value)) {
 		$.alert("电子邮箱最多允许填写80个字符！");
 		return false;
 	}
