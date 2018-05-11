@@ -99,27 +99,27 @@
 <script type="text/javascript">
 function CheckForm(o) {
 	if(!/^[\u4E00-\u9FA5\w]{1,10}$/.test(o.Surname.value)) {
-		alert("姓不能为空，最长不能超过10个字符！");
+		$.alert("姓不能为空，最长不能超过10个字符！");
 		return false;
 	}
 	if(!o.Sex[0].checked && !o.Sex[1].checked){ 
-		alert("请选择您的性别！");
+		$.alert("请选择您的性别！");
 		return false;
 	}
 	if(!/^\w{0,20}$/.test(o.Tel.value)) {
-		alert("电话号码最多允许填写20个字符！");
+		$.alert("电话号码最多允许填写20个字符！");
 		return false;
 	}
 	if(!/^[\w\.@]{0,80}$/.test(o.Email.value)) {
-		alert("电子邮箱最多允许填写80个字符！");
+		$.alert("电子邮箱最多允许填写80个字符！");
 		return false;
 	}
 	if(!/^\d{0,13}$/.test(o.QQ.value)) {
-		alert("联系QQ最多允许填写13个数字！");
+		$.alert("联系QQ最多允许填写13个数字！");
 		return false;
 	}
 	if(!/^[\s\S]{10,500}$/.test(o.Message.value)) {
-		alert("留言信息最低10个字符，最高500个字符！");
+		$.alert("留言信息最低10个字符，最高500个字符！");
 		return false;
 	}
 	var data = {
@@ -132,10 +132,11 @@ function CheckForm(o) {
 	};
 	$.post(o.action, data/*$(o).serialize()*/, function(re){
 		if(re == 'ok') {
-			alert("感谢您的提交，我们会在第一时间查看您的信息！");
-			window.location.href = './';
+			$.alert("感谢您的提交，我们会在第一时间查看您的信息！", function(){
+				window.location.href = './';
+			});
 		} else {
-			alert(re);
+			$.alert(re);
 		}
 	}, "text");
 	return false;
@@ -178,6 +179,13 @@ function CheckForm(o) {
 		<li class='qq'><span>QQ:22775114</span></li>
 		<li class='top'></li>
 	</ul>
+</div>
+<div id='talert'>
+	<div class='bg'></div>
+	<div class='body'>
+		<div class='text'></div>
+		<div class='foot'>确&nbsp;&nbsp;定</div>
+	</div>
 </div>
 <script src="http://res.hszxc.com:85/script/jquery.js"></script>
 <script src="http://res.hszxc.com:85/script/system.js"></script>
